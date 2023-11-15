@@ -141,17 +141,17 @@ Window {
 
                 Card {
                     text: "Screen 3, card 1"
-                    color: "maroon"
+                    color: "teal"
                 }
 
                 Card {
                     text: "Screen 3, card 2"
-                    color: "maroon"
+                    color: "teal"
                 }
 
                 Card {
                     text: "Screen 3, card 3"
-                    color: "maroon"
+                    color: "teal"
                 }
 
                 // Наполнитель
