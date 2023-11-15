@@ -18,7 +18,7 @@ Item {
         anchors.bottomMargin: 2
         border.width: 1
         border.color: "gray"
-        color: default_color
+        color: mousearea.containsPress ? held_color : mousearea.containsMouse ? hover_color : default_color
 
         Text {
             id: textarea
@@ -28,13 +28,10 @@ Item {
         }
 
         MouseArea {
+            id: mousearea
+
             anchors.fill: parent
             hoverEnabled: true
-
-            onEntered: parent.color = hover_color
-            onExited: parent.color = default_color
-            onPressed: parent.color = held_color
-            onReleased: parent.color = default_color
         }
     }
 }
