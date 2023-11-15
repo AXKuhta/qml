@@ -36,8 +36,10 @@ Window {
                     Layout.fillWidth: true
 
                     Text {
+                        id: header_text
+
                         anchors.centerIn: parent
-                        text: "header"
+                        text: "Screen 1"
                     }
                 }
             }
@@ -180,6 +182,7 @@ Window {
 
                 CustomButton {
                     mousearea.onClicked: function() {
+                        header_text.text = "Screen 1"
                         screen1.visible = true
                         screen2.visible = false
                         screen3.visible = false
@@ -188,6 +191,7 @@ Window {
 
                 CustomButton {
                     mousearea.onClicked: function() {
+                        header_text.text = "Screen 2"
                         screen1.visible = false
                         screen2.visible = true
                         screen3.visible = false
@@ -196,6 +200,7 @@ Window {
 
                 CustomButton {
                     mousearea.onClicked: function() {
+                        header_text.text = "Screen 3"
                         screen1.visible = false
                         screen2.visible = false
                         screen3.visible = true
