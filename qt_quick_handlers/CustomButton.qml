@@ -7,6 +7,7 @@ Item {
     property color default_color: "lightgray"
     property color hover_color: "skyblue"
     property color held_color: "darkorange"
+    property bool inactive: false
 
     Layout.fillHeight: true
     Layout.fillWidth: true
@@ -20,6 +21,7 @@ Item {
         border.width: 1
         border.color: "gray"
         color: mousearea.containsPress ? held_color : mousearea.containsMouse ? hover_color : default_color
+        opacity: inactive ? 0.5 : 1.0
 
         Text {
             id: textarea

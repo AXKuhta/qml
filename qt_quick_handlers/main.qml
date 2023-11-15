@@ -181,29 +181,50 @@ Window {
                 spacing: 4
 
                 CustomButton {
+                    id: btn1
+                    inactive: false
+
                     mousearea.onClicked: function() {
                         header_text.text = "Screen 1"
                         screen1.visible = true
                         screen2.visible = false
                         screen3.visible = false
+
+                        btn1.inactive = false
+                        btn2.inactive = true
+                        btn3.inactive = true
                     }
                 }
 
                 CustomButton {
+                    id: btn2
+                    inactive: true
+
                     mousearea.onClicked: function() {
                         header_text.text = "Screen 2"
                         screen1.visible = false
                         screen2.visible = true
                         screen3.visible = false
+
+                        btn1.inactive = true
+                        btn2.inactive = false
+                        btn3.inactive = true
                     }
                 }
 
                 CustomButton {
+                    id: btn3
+                    inactive: true
+
                     mousearea.onClicked: function() {
                         header_text.text = "Screen 3"
                         screen1.visible = false
                         screen2.visible = false
                         screen3.visible = true
+
+                        btn1.inactive = true
+                        btn2.inactive = true
+                        btn3.inactive = false
                     }
                 }
             }
