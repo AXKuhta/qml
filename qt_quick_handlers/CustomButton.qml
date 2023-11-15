@@ -3,6 +3,7 @@ import QtQuick.Layouts 1.15
 
 Item {
     property alias text: textarea.text
+    property alias mousearea: mousearea
     property color default_color: "lightgray"
     property color hover_color: "skyblue"
     property color held_color: "darkorange"

@@ -50,22 +50,108 @@ Window {
             border.color: "darkgray"
             border.width: 1
 
+            // Первый экран
             GridLayout {
+                id: screen1
+
                 anchors.fill: parent
                 columns: 2
-                clip: true // Не отрисовывать то, что вышло за границы
+                clip: true
 
                 anchors.margins: 5
                 columnSpacing: 5
                 rowSpacing: 5
 
+                visible: true
+
+                children: [
+                    Card {
+                        text: "Screen 1, card 1"
+                        color: "slategray"
+                    },
+
+                    Card {
+                        text: "Screen 1, card 2"
+                        color: "slategray"
+                    },
+
+                    Card {
+                        text: "Screen 1, card 3"
+                        color: "slategray"
+                    }
+                ]
+
+                Item {
+                    Layout.columnSpan: 2
+                    Layout.fillHeight: true
+                    Layout.fillWidth: true
+                }
+            }
+
+            // Второй экран
+            GridLayout {
+                id: screen2
+
+                anchors.fill: parent
+                columns: 2
+                clip: true
+
+                anchors.margins: 5
+                columnSpacing: 5
+                rowSpacing: 5
+
+                visible: false
+
                 Card {
+                    text: "Screen 2, card 1"
+                    color: "darkorange"
                 }
 
                 Card {
+                    text: "Screen 2, card 2"
+                    color: "darkorange"
                 }
 
                 Card {
+                    text: "Screen 2, card 3"
+                    color: "darkorange"
+                }
+
+                // Наполнитель
+                Item {
+                    Layout.columnSpan: 2
+                    Layout.fillHeight: true
+                    Layout.fillWidth: true
+                }
+            }
+
+            // Третий экран
+            GridLayout {
+                id: screen3
+
+                anchors.fill: parent
+                columns: 2
+                clip: true
+
+                anchors.margins: 5
+                columnSpacing: 5
+                rowSpacing: 5
+
+                visible: false
+
+                Card {
+                    text: "Screen 3, card 1"
+                    color: "maroon"
+                }
+
+                Card {
+                    text: "Screen 3, card 2"
+                    color: "maroon"
+                }
+
+                Card {
+                    text: "Screen 3, card 3"
+                    color: "maroon"
                 }
 
                 // Наполнитель
@@ -93,12 +179,27 @@ Window {
                 spacing: 4
 
                 CustomButton {
+                    mousearea.onClicked: function() {
+                        screen1.visible = true
+                        screen2.visible = false
+                        screen3.visible = false
+                    }
                 }
 
                 CustomButton {
+                    mousearea.onClicked: function() {
+                        screen1.visible = false
+                        screen2.visible = true
+                        screen3.visible = false
+                    }
                 }
 
                 CustomButton {
+                    mousearea.onClicked: function() {
+                        screen1.visible = false
+                        screen2.visible = false
+                        screen3.visible = true
+                    }
                 }
             }
         }
