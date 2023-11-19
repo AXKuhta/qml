@@ -8,6 +8,9 @@ Item {
     property color hover_color: "skyblue"
     property color held_color: "darkorange"
     property bool inactive: false
+    signal clicked();
+
+    id: root
 
     Layout.fillHeight: true
     Layout.fillWidth: true
@@ -35,6 +38,10 @@ Item {
 
             anchors.fill: parent
             hoverEnabled: true
+
+            onClicked: {
+                root.clicked()
+            }
         }
     }
 }

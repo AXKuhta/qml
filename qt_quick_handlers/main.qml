@@ -184,7 +184,7 @@ Window {
                     id: btn1
                     inactive: false
 
-                    mousearea.onClicked: function() {
+                    onClicked: function() {
                         header_text.text = "Screen 1"
                         screen1.visible = true
                         screen2.visible = false
@@ -200,7 +200,7 @@ Window {
                     id: btn2
                     inactive: true
 
-                    mousearea.onClicked: function() {
+                    onClicked: function() {
                         header_text.text = "Screen 2"
                         screen1.visible = false
                         screen2.visible = true
@@ -216,7 +216,7 @@ Window {
                     id: btn3
                     inactive: true
 
-                    mousearea.onClicked: function() {
+                    onClicked: function() {
                         header_text.text = "Screen 3"
                         screen1.visible = false
                         screen2.visible = false
