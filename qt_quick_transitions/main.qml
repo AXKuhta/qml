@@ -12,6 +12,7 @@ Window {
         anchors.fill: parent
         spacing: 5
 
+        // Верхняя навигационная панель
         Rectangle {
             id: rect_top
             color: "lightgray"
@@ -26,9 +27,15 @@ Window {
                 spacing: 4
 
                 CustomButton {
+                    id: back_button
+
                     text: "back"
                     width: 50
                     Layout.fillWidth: false
+
+                    onClicked: {
+                        show_screen1()
+                    }
                 }
 
                 Item {
@@ -43,8 +50,28 @@ Window {
                     }
                 }
             }
+
+            states: [
+                State {
+                    name: "back_button_disabled"
+                    PropertyChanges {
+                        target: back_button
+                        visible: false
+                    }
+                },
+                State {
+                    name: "back_button_enabled"
+                    PropertyChanges {
+                        target: back_button
+                        visible: true
+                    }
+                }
+            ]
+
+            state: "back_button_disabled"
         }
 
+        // Контент
         Rectangle {
             id: screen_rect
 
@@ -217,6 +244,7 @@ Window {
             state: "show_screen1"
         }
 
+        // Нижняя навигационная панель
         Rectangle {
             id: rect_bottom
             color: "lightgray"
@@ -237,12 +265,7 @@ Window {
                     inactive: false
 
                     onClicked: function() {
-                        header_text.text = "Screen 1"
-                        screen_rect.state = "show_screen1"
-
-                        btn1.inactive = false
-                        btn2.inactive = true
-                        btn3.inactive = true
+                        show_screen1()
                     }
                 }
 
@@ -251,12 +274,7 @@ Window {
                     inactive: true
 
                     onClicked: function() {
-                        header_text.text = "Screen 2"
-                        screen_rect.state = "show_screen2"
-
-                        btn1.inactive = true
-                        btn2.inactive = false
-                        btn3.inactive = true
+                        show_screen2()
                     }
                 }
 
@@ -265,15 +283,41 @@ Window {
                     inactive: true
 
                     onClicked: function() {
-                        header_text.text = "Screen 3"
-                        screen_rect.state = "show_screen3"
-
-                        btn1.inactive = true
-                        btn2.inactive = true
-                        btn3.inactive = false
+                        show_screen3()
                     }
                 }
             }
         }
+    }
+
+    // Функции перехода между состояниями
+    function show_screen1() {
+        header_text.text = "Screen 1"
+        screen_rect.state = "show_screen1"
+        rect_top.state = "back_button_disabled"
+
+        btn1.inactive = false
+        btn2.inactive = true
+        btn3.inactive = true
+    }
+
+    function show_screen2() {
+        header_text.text = "Screen 2"
+        screen_rect.state = "show_screen2"
+        rect_top.state = "back_button_enabled"
+
+        btn1.inactive = true
+        btn2.inactive = false
+        btn3.inactive = true
+    }
+
+    function show_screen3() {
+        header_text.text = "Screen 3"
+        screen_rect.state = "show_screen3"
+        rect_top.state = "back_button_enabled"
+
+        btn1.inactive = true
+        btn2.inactive = true
+        btn3.inactive = false
     }
 }
