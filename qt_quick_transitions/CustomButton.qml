@@ -22,8 +22,34 @@ Item {
         anchors.bottomMargin: 2
         border.width: 1
         border.color: "gray"
-        color: mousearea.containsPress ? held_color : mousearea.containsMouse ? hover_color : default_color
         opacity: inactive ? 0.5 : 1.0
+
+        states: [
+            State {
+                name: "idle"
+                PropertyChanges {
+                    target: rect
+                    color: default_color
+                }
+            },
+            State {
+                name: "hover"
+                PropertyChanges {
+                    target: rect
+                    color: hover_color
+
+                }
+            },
+            State {
+                name: "held"
+                PropertyChanges {
+                    target: rect
+                    color: held_color
+                }
+            }
+        ]
+
+        state: mousearea.containsPress ? "held" : mousearea.containsMouse ? "hover" : "idle"
 
         Text {
             id: textarea
@@ -42,5 +68,17 @@ Item {
                 root.clicked()
             }
         }
+
+        transitions: [
+            Transition {
+                from: ["idle", "hover", "held"]
+                to: ["idle", "hover", "held"]
+                PropertyAnimation {
+                    targets: rect
+                    properties: "color"
+                    duration: 100
+                }
+            }
+        ]
     }
 }
