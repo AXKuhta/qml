@@ -93,8 +93,6 @@ Window {
                 columnSpacing: 5
                 rowSpacing: 5
 
-                visible: false
-
                 children: [
                     Card {
                         text: "Screen 1, card 1"
@@ -131,8 +129,6 @@ Window {
                 columnSpacing: 5
                 rowSpacing: 5
 
-                visible: false
-
                 Card {
                     text: "Screen 2, card 1"
                     color: "darkorange"
@@ -168,8 +164,6 @@ Window {
                 columnSpacing: 5
                 rowSpacing: 5
 
-                visible: false
-
                 Card {
                     text: "Screen 3, card 1"
                     color: "teal"
@@ -198,45 +192,63 @@ Window {
                     name: "show_screen1"
                     PropertyChanges {
                         target: screen1
-                        visible: true
+                        //visible: true
+                        opacity: 1.0
                     }
                     PropertyChanges {
                         target: screen2
-                        visible: false
+                        //visible: false
+                        opacity: 0.0
                     }
                     PropertyChanges {
                         target: screen3
-                        visible: false
+                        //visible: false
+                        opacity: 0.0
                     }
                 },
                 State {
                     name: "show_screen2"
                     PropertyChanges {
                         target: screen1
-                        visible: false
+                        //visible: false
+                        opacity: 0.0
                     }
                     PropertyChanges {
                         target: screen2
-                        visible: true
+                        //visible: true
+                        opacity: 1.0
                     }
                     PropertyChanges {
                         target: screen3
-                        visible: false
+                        //visible: false
+                        opacity: 0.0
                     }
                 },
                 State {
                     name: "show_screen3"
                     PropertyChanges {
                         target: screen1
-                        visible: false
+                        //visible: false
+                        opacity: 0.0
                     }
                     PropertyChanges {
                         target: screen2
-                        visible: false
+                        //visible: false
+                        opacity: 0.0
                     }
                     PropertyChanges {
                         target: screen3
-                        visible: true
+                        //visible: true
+                        opacity: 1.0
+                    }
+                }
+            ]
+
+            transitions: [
+                Transition {
+                    PropertyAnimation {
+                        properties: "opacity"
+                        duration: 250
                     }
                 }
             ]
