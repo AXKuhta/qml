@@ -3,6 +3,8 @@ import QtQuick.Window 2.15
 import QtQuick.Controls 2.15
 import QtWebEngine 1.10
 
+// sudo apt install qml-module-qtwebengine qtwebengine5-dev
+
 Window {
     width: 640
     height: 480
