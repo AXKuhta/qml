@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>images/chris-charles-9APFPoNb9iw-unsplash.jpg</file>
+        <file>images/keyur-nandaniya-vu0gvM5he8o-unsplash.jpg</file>
+        <file>images/tianhao-zhang-fVDSSAvDj5I-unsplash.jpg</file>
+    </qresource>
+</RCC>
